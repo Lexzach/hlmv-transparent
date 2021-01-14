@@ -1,2 +1,9 @@
 deleteTempFiles=true
 autoCrop=true
+autoScreenshot=false
+/\ /\ /\ --- PLEASE LOOK AT README.MD BEFORE CHANGING THIS TO TRUE!!!
+screenshotSizes:
+0
+44
+1920
+750

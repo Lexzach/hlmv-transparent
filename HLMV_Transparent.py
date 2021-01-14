@@ -19,7 +19,22 @@ except:
     print("Press enter to close...")
     a = input()
     sys.exit(0)
+try:
+    import pyautogui
+except:
+    print("Fatal Error: PyAutoGUI is not installed. Please refer to README.md for dependencies.")
+    print("Press enter to close...")
+    a = input()
+    sys.exit(0)
+try:
+    import keyboard
+except:
+    print("Fatal Error: Keyboard is not installed. Please refer to README.md for dependencies.")
+    print("Press enter to close...")
+    a = input()
+    sys.exit(0)
 import os
+import time
 import sys
 from PIL import Image, ImageDraw, ImageFont, ImageChops
 config = []
@@ -37,19 +52,58 @@ except:
     print("Press enter to close...")
     a = input()
     sys.exit(0)
+config[5] = config[5].replace("\\","")
+config[5] = config[5].replace("n","")
 
-print("")
-print("Enter number of pairs to make transparent... (ex. if you have 1 black images and 1 white image that would be 1 pair)")
-pairs=input()
+config[6] = config[6].replace("\\","")
+config[6] = config[6].replace("n","")
 
-try:
-    pairs = int(pairs)
-except:
+config[7] = config[7].replace("\\","")
+config[7] = config[7].replace("n","")
+
+config[8] = config[8].replace("\\","")
+config[8] = config[8].replace("n","")
+pairs = 0
+count2=0
+if config[2] == "autoScreenshot=true\n":
     print("")
-    print("Error: You entered something other than a number.")
-    print("Press enter to close...")
-    a = input()
-    sys.exit(0)
+    print("Now in automatic mode, switch to HLMV and use the following buttons:")
+    print("S - Take a screenshot, the mouse will move on its own.")
+    print("P - Finish and start rendering.")
+    while not keyboard.is_pressed("p"):
+        if keyboard.is_pressed("s"):
+            pyautogui.click(59,31) #options
+            pyautogui.click(67,49) #background
+            pyautogui.click(205,211) #white
+            pyautogui.click(46,352) #ok
+            time.sleep(0.20)
+            print("Taking screenshot w"+str(count2)+".png")
+            im = pyautogui.screenshot(region=(int(config[5]),int(config[6]), int(config[7]), int(config[8])))
+            im.save("w"+str(count2)+".png")
+            pyautogui.click(59,31) #options
+            pyautogui.click(67,49) #background
+            pyautogui.click(24,212) #black
+            pyautogui.click(46,352) #ok
+            time.sleep(0.20)
+            print("Taking screenshot b"+str(count2)+".png")
+            im = pyautogui.screenshot(region=(int(config[5]),int(config[6]), int(config[7]), int(config[8])))
+            im.save("b"+str(count2)+".png")
+            count2+=1
+            pairs+=1
+
+else:
+    print("")
+    print("Enter number of pairs to make transparent... (ex. if you have 1 black images and 1 white image that would be 1 pair)")
+    pairs=input()
+
+    try:
+        pairs = int(pairs)
+    except:
+        print("")
+        print("Error: You entered something other than a number.")
+        print("Press enter to close...")
+        a = input()
+        sys.exit(0)
 
 count2 =0
 while count2 != pairs:
@@ -144,7 +198,7 @@ while count2 != pairs:
         os.remove("data" + str(count2) +".png")
     count2+=1
 
-if config[1] == "autoCrop=true":
+if config[1] == "autoCrop=true\n":
     def trim(im):
         bg = Image.new(im.mode, im.size, im.getpixel((0,0)))
         diff = ImageChops.difference(im, bg)
@@ -154,7 +208,7 @@ if config[1] == "autoCrop=true":
             return im.crop(bbox)
             
     for filename in glob.glob('*.png'):
-        if str(filename[0]) != "b" and str(filename[0]) != "w":
+        if str(filename[0]) == "f":
             im = Image.open(filename)
             print("Cropping "+filename)
             im = trim(im)
@@ -170,7 +224,7 @@ print("| |   ) || |   | || | \   || (         ")
 print("| (__/  )| (___) || )  \  || (____/\ _ ")
 print("(______/ (_______)|/    )_)(_______/(_)")
 print("")
-print("Like this project? Let me know on my talk page:")
+print("Do you like this project? Let me know on my talk page:")
 print("wiki.teamfortress.com/wiki/User_talk:Lexzach")
 print("")
 print("Press enter to exit...")
