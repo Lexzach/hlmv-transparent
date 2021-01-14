@@ -39,33 +39,24 @@ import sys
 from PIL import Image, ImageDraw, ImageFont, ImageChops
 config = []
 print("Starting...")
+print("Version 1.2")
 print("- Made by Lexzach -")
 print("Loading config.txt...")
 
 try:
     config = open("config.txt","r+")
     config = config.readlines()
-    print("Config loaded successfully")
+    print("Config loaded successfully.")
 except:
-    print("")
-    print("Error: Config.txt read unsuccessfully.")
+    print("\nError: Config.txt read unsuccessfully, perhapse the file is not in the same folder as the program?")
     print("Press enter to close...")
     a = input()
     sys.exit(0)
-config[5] = config[5].replace("\\","")
-config[5] = config[5].replace("n","")
-
-config[6] = config[6].replace("\\","")
-config[6] = config[6].replace("n","")
-
-config[7] = config[7].replace("\\","")
-config[7] = config[7].replace("n","")
-
-config[8] = config[8].replace("\\","")
-config[8] = config[8].replace("n","")
+for x in config:
+    config[config.index(x)] = x.replace("\n","")
 pairs = 0
 count2=0
-if config[2] == "autoScreenshot=true\n":
+if config[2] == "autoScreenshot=true":
     print("")
     print("Now in automatic mode, switch to HLMV and use the following buttons:")
     print("S - Take a screenshot, the mouse will move on its own.")
@@ -99,8 +90,7 @@ else:
     try:
         pairs = int(pairs)
     except:
-        print("")
-        print("Error: You entered something other than a number.")
+        print("\nError: You entered something other than a number.")
         print("Press enter to close...")
         a = input()
         sys.exit(0)
@@ -111,8 +101,7 @@ while count2 != pairs:
         img1 = cv2.imread("w" + str(count2) +".png")
         print("Reading white image #" + str(count2))
     except:
-        print("")
-        print("Error: File 'w" + str(count2) +".png' does not exist.")
+        print("\nError: File 'w" + str(count2) +".png' does not exist.")
         print("Press enter to close...")
         a = input()
         sys.exit(0)
@@ -122,8 +111,7 @@ while count2 != pairs:
         img2 = cv2.imread("b" + str(count2) +".png")
         print("Reading black image #" + str(count2))
     except:
-        print("")
-        print("Error: File 'b" + str(count2) +".png' does not exist.")
+        print("\nError: File 'b" + str(count2) +".png' does not exist.")
         print("Press enter to close...")
         a = input()
         sys.exit(0)
@@ -133,8 +121,7 @@ while count2 != pairs:
         img3 = cv2.subtract(img1,img2)
         print("Found differences")
     except:
-        print("")
-        print("Error: Differences in b"+str(count2)+".png and w" + str(count2) + ".png were not found.")
+        print("\nError: Differences in b"+str(count2)+".png and w" + str(count2) + ".png were not found.")
         print("Press enter to close...")
         a = input()
         sys.exit(0)
@@ -142,8 +129,7 @@ while count2 != pairs:
         print("Writing differences to data"+str(count2)+".png")
         cv2.imwrite('data' + str(count2) +'.png',img3)
     except:
-        print("")
-        print("Error: Images are not being found, perhaps you entered a higher number of pairs then intended?")
+        print("\nError: Images are not being found, perhaps you entered a higher number of pairs then intended?")
         print("Press enter to close...")
         a = input()
         sys.exit(0)
@@ -192,13 +178,13 @@ while count2 != pairs:
     print("Saving finished"+ str(count2) +".png")
     differ.save("finished" + str(count2) +".png")
 
-    if config[0] == "deleteTempFiles=true\n":
+    if config[0] == "deleteTempFiles=true":
         print("Deleting temp files...")
         os.remove("transparent" + str(count2) +".png")
         os.remove("data" + str(count2) +".png")
     count2+=1
 
-if config[1] == "autoCrop=true\n":
+if config[1] == "autoCrop=true":
     def trim(im):
         bg = Image.new(im.mode, im.size, im.getpixel((0,0)))
         diff = ImageChops.difference(im, bg)
@@ -223,9 +209,7 @@ print("| |   | || |   | || (\ \) ||  __)      ")
 print("| |   ) || |   | || | \   || (         ")
 print("| (__/  )| (___) || )  \  || (____/\ _ ")
 print("(______/ (_______)|/    )_)(_______/(_)")
-print("")
-print("Do you like this project? Let me know on my talk page:")
+print("\nDo you like this project? Let me know on my talk page:")
 print("wiki.teamfortress.com/wiki/User_talk:Lexzach")
-print("")
-print("Press enter to exit...")
+print("\nPress enter to exit...")
 a=input()
