@@ -5,11 +5,11 @@ This program takes a white background and black background from HLMV and makes a
 
 Python 3.8.6 `www.python.org/downloads/release/python-386/`
 
--OpenCV `pip install opencv-python`
+- OpenCV `pip install opencv-python`
 
--Pillow `pip install pillow`
+- Pillow `pip install pillow`
 
--Glob `pip install glob3`
+- Glob `pip install glob3`
 
 # How to use:
 
@@ -28,8 +28,8 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 4. Run the program.
 
 # Config.txt
--`autoCrop` - Automatically crops the transparent image down to its smallest possible size while keeping all aspects of the image intact.
--`deleteTempFiles` - Automatically clean up temporary files that are generated during operation.
+- `autoCrop` - Automatically crops the transparent image down to its smallest possible size while keeping all aspects of the image intact.
+- `deleteTempFiles` - Automatically clean up temporary files that are generated during operation.
 
 # Like this program?
 Do you like this program? If so I would really appreciate it if you would stop by and post something to my talk page on the Team Fortress 2 Wikipedia!
