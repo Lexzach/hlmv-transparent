@@ -18,7 +18,7 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 `b0.png`
 `w1.png`
 `b1.png`
-...and when running the program I would type in "2" pairs when prompted.
+...and when running the program I would type in `2` pairs when prompted.
 
 3. Put those screenshots in the same folder as the program.
 
