@@ -1,4 +1,4 @@
-Version 1.1
+Version 1.2
 
 # HLMV Transparent
 This program takes a white background and black background from HLMV and makes a perfect transparent image without jagged edges or white edges.
