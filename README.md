@@ -1,4 +1,4 @@
-# hlmv-transparent
+# HLMV Transparent
 This program takes a white background and black background from HLMV and makes a pure transparent image without jagged edges or white edges.
 
 # Dependencies:
@@ -27,3 +27,8 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 # Config.txt
 -`autoCrop` - Automatically crops the transparent image down to its smallest possible size while keeping all aspects of the image intact.
 -`deleteTempFiles` - Automatically clean up temporary files that are generated during operation.
+
+# Like this program?
+Do you like this program? If so I would really appreciate it if you would stop by and post something to my talk page on the Team Fortress 2 Wikipedia!
+
+```wiki.teamfortress.com/wiki/User_talk:Lexzach```
