@@ -3,7 +3,7 @@ This program takes a white background and black background from HLMV and makes a
 
 # Dependencies:
 
-Python 3.8.6
+Python 3.8.6 `www.python.org/downloads/release/python-386/`
 
 -OpenCV `pip install opencv-python`
 
