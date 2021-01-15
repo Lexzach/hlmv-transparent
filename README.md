@@ -1,7 +1,7 @@
 Version 1.3
 
 # HLMV Transparent
-This is a program specifically designed for the Team Fortress 2 Wiki. It allows perfect transparent images to be easily and automatically created at the push of a button using stock Half-Life Model Viewer.
+This is a program specifically designed for the Team Fortress 2 Wiki. It allows perfect transparent images to be easily and automatically created at the push of a button using the out of the box Half-Life Model Viewer program.
 
 # Dependencies:
 
