@@ -22,7 +22,7 @@ Alternatively, you can run the command `pip install -r requirements.txt` to auto
 - Click at the top of the Windows Explorer that shows the path, it should look something like `This PC > Downloads > hlmv-transparent-main`, once clicked, the text should turn blue.
 - Copy the text and return to the Command prompt.
 - Type in `cd` plus a space, and then right click the Command prompt to paste the text.
-- Type in `pip install -r requirements.txt`. If this displays an error saying that `pip is not an identified command`, please refer to [this](appuals.com/fix-pip-is-not-recognized-as-an-internal-or-external-command/) guide.
+- Type in `pip install -r requirements.txt`. If this displays an error saying that `pip is not an identified command`, please refer to [this](https://appuals.com/fix-pip-is-not-recognized-as-an-internal-or-external-command/) guide.
 - Now your program should be setup, close the command prompt and return to the file explorer.
 - Double-click `hlmv-transparent.py` and have fun!
 
