@@ -1,20 +1,21 @@
-Version 1.2
+Version 1.3
 
 # HLMV Transparent
-This program takes a white background and black background from HLMV and makes a perfect transparent image without jagged edges or white edges.
+This is a program specifically designed for the Team Fortress 2 Wiki. It allows perfect transparent images to be easily and automatically created at the push of a button. 
 
 # Dependencies:
 
 - Python 3.8.6 `www.python.org/downloads/release/python-386/`
 - OpenCV `pip install opencv-python`
 - Pillow `pip install pillow`
-- Glob `pip install glob3`
 - Pyautogui `pip install PyAutoGUI`
 - Keyboard `pip install keyboard`
 
+Alternatively, you can run the command `pip install -r requirements.txt` to automatically install the dependencies.
+
 # How to use in manual mode:
 
-1. Take two screenshots in HLMV, one with the white background color and the other with the black background color. [THESE SCREENSHOTS MUST BE THE EXACT SAME SIZE, I WOULD RECOMMEND USING WINDOWED SCREENSHOT MODE]
+1. Take two screenshots in HLMV, one with the white background color and the other with the black background color. Use window capture, as these screenshots **must** be the same size.
 
 2. Name the screenshot with the white background as `w0.png` and the black background `b0.png`. If you want to do multiple images at the same time, continue to name the images as mentioned above, but change the number from 0 to 1 then to 2, and so on.
 As an example, if I wanted to do 2 white images and 2 black images, I would do the following:
@@ -24,11 +25,13 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 `b1.png`
 ...and when running the program I would type in `2` pairs when prompted.
 
-3. Put those screenshots in the same folder as the program.
+3. Put those screenshots in the **same folder** as the program.
 
 4. Run the program.
 
-# How to use in automatic mode (`autoScreenshot=true`):
+# How to use in automatic mode:
+
+**Make sure you change `autoScreenshot` to `true` inside `config.txt`**
 
 1. Run the program.
 
