@@ -24,7 +24,8 @@ Alternatively, you can run the command `pip install -r requirements.txt` to auto
 - Type in `cd` plus a space, and then right click the Command prompt to paste the text.
 - Type in `pip install -r requirements.txt`. If this displays an error saying that `pip is not an identified command`, please refer to [this](https://appuals.com/fix-pip-is-not-recognized-as-an-internal-or-external-command/) guide.
 - Now your program should be setup, close the command prompt and return to the file explorer.
-- Double-click `hlmv-transparent.py` and have fun!
+- Configure `config.txt` to adjust any settings you want.
+- Double-click `hlmv-transparent.py` to start the program.
 
 # How to use in manual mode:
 
