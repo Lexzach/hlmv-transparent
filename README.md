@@ -13,6 +13,19 @@ This is a program specifically designed for the Team Fortress 2 Wiki. It allows 
 
 Alternatively, you can run the command `pip install -r requirements.txt` to automatically install the dependencies.
 
+# How to install:
+
+- Download Python 3.8.6 from `www.python.org/downloads/release/python-386/`
+- Extract ZIP download to your prefered destination.
+- Open the `Command prompt`.
+- Navigate to the folder that you extracted the program to.
+- Click at the top of the Windows Explorer that shows the path, it should look something like `This PC > Downloads > hlmv-transparent-main`, once clicked, the text should turn blue.
+- Copy the text and return to the Command prompt.
+- Type in `cd` plus a space, and then right click the Command prompt to paste the text.
+- Type in `pip install -r requirements.txt`. If this displays an error saying that `pip is not an identified command`, please refer to [this](appuals.com/fix-pip-is-not-recognized-as-an-internal-or-external-command/) guide.
+- Now your program should be setup, close the command prompt and return to the file explorer.
+- Double-click `hlmv-transparent.py` and have fun!
+
 # How to use in manual mode:
 
 1. Take two screenshots in HLMV, one with the white background color and the other with the black background color. Use window capture, as these screenshots **must** be the same size.
