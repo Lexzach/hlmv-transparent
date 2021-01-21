@@ -5,7 +5,7 @@ This is a program specifically designed for the Team Fortress 2 Wiki. It allows 
 
 # Dependencies:
 
-**MAKE SURE TO DISABLE ALL BUILT-IN GPU ANTI-ALIASING AND FILTERING SETTINGS FOR HLMV**
+**MAKE SURE TO DISABLE ALL BUILT-IN GPU FILTERING SETTINGS FOR HLMV**
 
 - Python 3.8.6 `www.python.org/downloads/release/python-386/`
 - OpenCV `pip install opencv-python`
