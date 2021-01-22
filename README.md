@@ -3,9 +3,9 @@ Version 1.3
 # HLMV Transparent
 This is a program specifically designed for the Team Fortress 2 Wiki. It allows perfect transparent images to be easily and automatically created at the push of a button using the out of the box Half-Life Model Viewer program.
 
-# Dependencies:
+**IF YOU NOTICE BLACK SPOTS ON THE RENDERED IMAGE, MAKE SURE YOU DISABLE FILTERING OR ANY OTHER SETTINGS YOUR GPU IS APPLYING TO HLMV.**
 
-**MAKE SURE TO DISABLE ALL BUILT-IN GPU FILTERING SETTINGS FOR HLMV**
+# Dependencies:
 
 - Python 3.8.6 `www.python.org/downloads/release/python-386/`
 - OpenCV `pip install opencv-python`
