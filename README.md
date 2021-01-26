@@ -1,4 +1,4 @@
-Version 1.3
+Version 1.5
 
 # HLMV Transparent
 This is a program specifically designed for the Team Fortress 2 Wiki. It allows perfect transparent images to be easily and automatically created at the push of a button using the out of the box Half-Life Model Viewer program.
@@ -41,21 +41,31 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 `b1.png`
 ...and when running the program I would type in `2` pairs when prompted.
 
-3. Put those screenshots in the **same folder** as the program.
+3. Put those screenshots into the folder labeled `Rendering Folder`.
 
-4. Run the program.
+4. Run the program titled `HLMV_Transparent.py`.
+
+5. Type out the amount of pairs you want to render. (ex. if you have `1` white image and `1` black image that would be `1` pair)
 
 # How to use in automatic mode:
 
 **Make sure you change `autoScreenshot` to `true` inside `config.txt`**
 
-1. Run the program.
+1. Run the program titled `HLMV_Transparent.py`.
 
 2. Return to HLMV and press `S` to take a screenshot. (This will move your mouse around)
 
 3. Press the `S` key to take as many screenshots as you wish.
 
-4. Press `P` to finish and start rendering
+4. Press `P` to finish and start rendering.
+
+# How to use Transparent Cropper script
+
+1. Place any transparent images that need to be shrunk into the `Cropping Folder` folder.
+
+2. Run the program titled `Transparent_Cropper.py`.
+
+3. Press the `crop` button to crop the images.
 
 # Config.txt
 - `autoCrop` - Automatically crops the transparent image down to its smallest possible size while keeping all aspects of the image intact.

@@ -67,18 +67,16 @@ if config[2] == "autoScreenshot=true":
             pyautogui.click(67,49) #background
             pyautogui.click(205,211) #white
             pyautogui.click(46,352) #ok
-            time.sleep(0.20)
             print("Taking screenshot w"+str(count2)+".png")
             im = pyautogui.screenshot(region=(int(config[5]),int(config[6]), int(config[7]), int(config[8])))
-            im.save("w"+str(count2)+".png")
+            im.save("./Rendering Folder/w"+str(count2)+".png")
             pyautogui.click(59,31) #options
             pyautogui.click(67,49) #background
             pyautogui.click(24,212) #black
             pyautogui.click(46,352) #ok
-            time.sleep(0.20)
             print("Taking screenshot b"+str(count2)+".png")
             im = pyautogui.screenshot(region=(int(config[5]),int(config[6]), int(config[7]), int(config[8])))
-            im.save("b"+str(count2)+".png")
+            im.save("./Rendering Folder/b"+str(count2)+".png")
             count2+=1
             pairs+=1
 
@@ -98,7 +96,7 @@ else:
 count2 =0
 while count2 != pairs:
     try:
-        img1 = cv2.imread("w" + str(count2) +".png")
+        img1 = cv2.imread("./Rendering Folder/w" + str(count2) +".png")
         print("Reading white image #" + str(count2))
     except:
         print("\nError: File 'w" + str(count2) +".png' does not exist.")
@@ -108,7 +106,7 @@ while count2 != pairs:
 
 
     try:
-        img2 = cv2.imread("b" + str(count2) +".png")
+        img2 = cv2.imread("./Rendering Folder/b" + str(count2) +".png")
         print("Reading black image #" + str(count2))
     except:
         print("\nError: File 'b" + str(count2) +".png' does not exist.")
@@ -127,7 +125,7 @@ while count2 != pairs:
         sys.exit(0)
     try:
         print("Writing differences to data"+str(count2)+".png")
-        cv2.imwrite('data' + str(count2) +'.png',img3)
+        cv2.imwrite('./Rendering Folder/data' + str(count2) +'.png',img3)
     except:
         print("\nError: Images are not being found, perhaps you entered a higher number of pairs then intended?")
         print("Press enter to close...")
@@ -135,7 +133,7 @@ while count2 != pairs:
         sys.exit(0)
 
     newData = []
-    differ = Image.open('data' + str(count2) +'.png')
+    differ = Image.open('./Rendering Folder/data' + str(count2) +'.png')
     differ = differ.convert("RGBA")
 
     datas = differ.getdata()
@@ -150,9 +148,9 @@ while count2 != pairs:
 
     differ.putdata(newData)
     print("Opening and converting...")
-    differ.save('transparent' + str(count2) +'.png')
-    layer1 = Image.open("b" + str(count2) +".png")
-    layer2 = Image.open("transparent" + str(count2) +".png")
+    differ.save('./Rendering Folder/transparent' + str(count2) +'.png')
+    layer1 = Image.open("./Rendering Folder/b" + str(count2) +".png")
+    layer2 = Image.open("./Rendering Folder/transparent" + str(count2) +".png")
     layer1 = layer1.convert("RGBA")
     layer2 = layer2.convert("RGBA")
 
@@ -173,15 +171,15 @@ while count2 != pairs:
             newData.append(item)
     print("Data written successfully!")
 
-    differ=Image.open("transparent" + str(count2) +".png")
+    differ=Image.open("./Rendering Folder/transparent" + str(count2) +".png")
     differ.putdata(newData)
-    print("Saving finished"+ str(count2) +".png")
-    differ.save("finished" + str(count2) +".png")
+    print("./Rendering Folder/Saving finished"+ str(count2) +".png")
+    differ.save("./Rendering Folder/finished" + str(count2) +".png")
 
     if config[0] == "deleteTempFiles=true":
         print("Deleting temp files...")
-        os.remove("transparent" + str(count2) +".png")
-        os.remove("data" + str(count2) +".png")
+        os.remove("./Rendering Folder/transparent" + str(count2) +".png")
+        os.remove("./Rendering Folder/data" + str(count2) +".png")
     count2+=1
 
 if config[1] == "autoCrop=true":
@@ -193,9 +191,10 @@ if config[1] == "autoCrop=true":
         if bbox:
             return im.crop(bbox)
             
-    for filename in glob.glob('*.png'):
-        if str(filename[0]) == "f":
+    for filename in glob.glob('./Rendering Folder/*.png'):
+        if str(filename[19]) == "f":
             im = Image.open(filename)
+            #im = im.resize((im.size[0]*1, im.size[1]*1), Image.ANTIALIAS)
             print("Cropping "+filename)
             im = trim(im)
             im.save(filename[:-4] + "_cropped.png")
@@ -211,5 +210,4 @@ print("| (__/  )| (___) || )  \  || (____/\ _ ")
 print("(______/ (_______)|/    )_)(_______/(_)")
 print("\nDo you like this project? Let me know on my talk page:")
 print("wiki.teamfortress.com/wiki/User_talk:Lexzach")
-print("\nPress enter to exit...")
-a=input()
+a=input("\nPress enter to exit...")
