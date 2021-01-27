@@ -141,10 +141,9 @@ while count2 != pairs:
     datas = differ.getdata()
     print("Appending similarities to list...")
     for item in datas:
-        if float(item[0]) > pixelLenience and float(item[1]) > pixelLenience and float(item[2]) > pixelLenience:
-            if float(prevData[0]+pixelLenience) > float(prevData[0]) or float(prevData[0]-pixelLenience) > float(prevData[0]) or float(prevData[1]+pixelLenience) > float(prevData[1]) or float(prevData[1]-pixelLenience) > float(prevData[1]) or float(prevData[2]+pixelLenience) > float(prevData[1]) or float(prevData[2]+pixelLenience) > float(prevData[1])or float(prevData[2]-pixelLenience) > float(prevData[1]):
-                newData.append((255, 255, 255, 0))
-                prevData = item
+        if float(item[0]) >= pixelLenience and float(item[1]) >= pixelLenience and float(item[2]) >= pixelLenience:
+            newData.append((255, 255, 255, 0))
+            prevData = item
         else:
             newData.append(item)
             prevData = item
