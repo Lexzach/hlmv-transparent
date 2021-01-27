@@ -1,4 +1,4 @@
-Version 1.6
+Version 1.7
 
 # HLMV Transparent
 This is a program specifically designed for the Team Fortress 2 Wiki. It allows perfect transparent images to be easily and automatically created at the push of a button using the out of the box Half-Life Model Viewer program.
@@ -76,7 +76,7 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 
 - `screenshotSizes` - Adjust the size of the screenshot area. This is already coordinated for a 1920x1080 monitor. The first two numbers are the top left corner of the screenshot, and the last two numbers are the bottom left corner of the screenshot.
 
-- `pixelLenience` - Change how lenient the program is about pixel removal. `0` will produce the most jagged edges and will remove everything that isn't black, while `254` will make everything smooth, but will leave white artifacts around the edges. The default is `50` but you can experiment around to produce the best looking results. **Note:** This was only added in version 1.6, all images generated before 1.6 use the default of `0`.
+- `pixelLenience` - Change how lenient the program is about pixel removal. `1` will produce the most jagged edges and will remove everything that isn't black, while `254` will make everything smooth, but will leave unwanted artifacts around the edges. The default is `1` but you can experiment around to produce the best looking results.
 
 # Like this program?
 Do you like this program? If so I would really appreciate it if you would stop by and post something to my talk page on the Team Fortress 2 Wikipedia!

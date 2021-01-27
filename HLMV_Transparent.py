@@ -39,7 +39,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont, ImageChops
 config = []
 print("Starting...")
-print("Version 1.2")
+print("Version 1.7")
 print("- Made by Lexzach -")
 print("Loading config.txt...")
 
@@ -137,14 +137,17 @@ while count2 != pairs:
     newData = []
     differ = Image.open('./Rendering Folder/data' + str(count2) +'.png')
     differ = differ.convert("RGBA")
-
+    prevData = (255, 255, 255, 255)
     datas = differ.getdata()
     print("Appending similarities to list...")
     for item in datas:
         if float(item[0]) > pixelLenience and float(item[1]) > pixelLenience and float(item[2]) > pixelLenience:
-            newData.append((255, 255, 255, 0))
+            if float(prevData[0]+pixelLenience) > float(prevData[0]) or float(prevData[0]-pixelLenience) > float(prevData[0]) or float(prevData[1]+pixelLenience) > float(prevData[1]) or float(prevData[1]-pixelLenience) > float(prevData[1]) or float(prevData[2]+pixelLenience) > float(prevData[1]) or float(prevData[2]+pixelLenience) > float(prevData[1])or float(prevData[2]-pixelLenience) > float(prevData[1]):
+                newData.append((255, 255, 255, 0))
+                prevData = item
         else:
             newData.append(item)
+            prevData = item
 
 
 
@@ -162,7 +165,7 @@ while count2 != pairs:
     count=0
     print("Writing data onto transparent image...")
     for item in layer2data:
-        if item[0] == 0 and item[1] == 0 and item[2] == 0:
+        if item[3] != 0:
             count+=1
             try:
                 newData.append((layer1data[count]))

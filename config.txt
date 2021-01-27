@@ -7,4 +7,4 @@ screenshotSizes:
 44
 1920
 750
-pixelLenience=125
+pixelLenience=1
