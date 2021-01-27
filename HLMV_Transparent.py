@@ -39,7 +39,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont, ImageChops
 config = []
 print("Starting...")
-print("Version 1.7")
+print("Version 1.8")
 print("- Made by Lexzach -")
 print("Loading config.txt...")
 
@@ -163,7 +163,7 @@ while count2 != pairs:
     layer1data = layer1.getdata()
     layer2data = layer2.getdata()
     newData = []
-    count=0
+    count=-1
     print("Writing data onto transparent image...")
     for item in layer2data:
         if item[3] != 0:
