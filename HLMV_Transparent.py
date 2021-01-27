@@ -69,6 +69,7 @@ if config[2] == "autoScreenshot=true":
             pyautogui.click(67,49) #background
             pyautogui.click(205,211) #white
             pyautogui.click(46,352) #ok
+            time.sleep(0.20)
             print("Taking screenshot w"+str(count2)+".png")
             im = pyautogui.screenshot(region=(int(config[5]),int(config[6]), int(config[7]), int(config[8])))
             im.save("./Rendering Folder/w"+str(count2)+".png")
@@ -76,6 +77,7 @@ if config[2] == "autoScreenshot=true":
             pyautogui.click(67,49) #background
             pyautogui.click(24,212) #black
             pyautogui.click(46,352) #ok
+            time.sleep(0.20)
             print("Taking screenshot b"+str(count2)+".png")
             im = pyautogui.screenshot(region=(int(config[5]),int(config[6]), int(config[7]), int(config[8])))
             im.save("./Rendering Folder/b"+str(count2)+".png")
