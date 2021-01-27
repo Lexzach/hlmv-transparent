@@ -76,7 +76,7 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 
 - `screenshotSizes` - Adjust the size of the screenshot area. This is already coordinated for a 1920x1080 monitor. The first two numbers are the top left corner of the screenshot, and the last two numbers are the bottom left corner of the screenshot.
 
-- `pixelLenience` - Change how lenient the program is about pixel removal. `1` will produce the most jagged edges and will remove everything that isn't black, while `254` will make everything smooth, but will leave unwanted artifacts around the edges. The default is `20` but you can experiment around to produce the best looking results.
+- `pixelLenience` - Change how lenient the program is about pixel removal. `1` will produce the most jagged edges and will remove everything that isn't black, while `254` will make everything smooth, but will leave unwanted artifacts around the edges. The default is `20` but you can experiment around to produce the best looking results. If you find black spots on the rendered image, try increasing this number.
 
 # Like this program?
 Do you like this program? If so I would really appreciate it if you would stop by and post something to my talk page on the Team Fortress 2 Wikipedia!
