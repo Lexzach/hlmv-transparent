@@ -56,7 +56,8 @@ for x in config:
     config[config.index(x)] = x.replace("\n","")
 pairs = 0
 count2=0
-pixelLenience = int(str(config[9]).replace("pixelLenience=", ""))
+pixelLenience = float(str(config[9]).replace("pixelLenience=", ""))
+
 if config[2] == "autoScreenshot=true":
     print("")
     print("Now in automatic mode, switch to HLMV and use the following buttons:")
@@ -140,7 +141,7 @@ while count2 != pairs:
     datas = differ.getdata()
     print("Appending similarities to list...")
     for item in datas:
-        if item[0] > pixelLenience and item[1] > pixelLenience and item[2] > pixelLenience:
+        if float(item[0]) > pixelLenience and float(item[1]) > pixelLenience and float(item[2]) > pixelLenience:
             newData.append((255, 255, 255, 0))
         else:
             newData.append(item)
