@@ -39,7 +39,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont, ImageChops
 config = []
 print("Starting...")
-print("Version 1.8")
+print("Version 2.0")
 print("- Made by Lexzach -")
 print("Loading config.txt...")
 
@@ -56,7 +56,7 @@ for x in config:
     config[config.index(x)] = x.replace("\n","")
 pairs = 0
 count2=0
-pixelLenience = float(str(config[9]).replace("pixelLenience=", ""))
+#pixelLenience = float(str(config[9]).replace("pixelLenience=", ""))
 
 if config[2] == "autoScreenshot=true":
     print("")
@@ -141,20 +141,40 @@ while count2 != pairs:
     differ = differ.convert("RGBA")
     prevData = (255, 255, 255, 255)
     datas = differ.getdata()
-    print("Appending similarities to list...")
+    print("Making transparent data...")
     for item in datas:
-        if float(item[0]) >= pixelLenience and float(item[1]) >= pixelLenience and float(item[2]) >= pixelLenience:
+        #if float(item[0]) >= pixelLenience and float(item[1]) >= pixelLenience and float(item[2]) >= pixelLenience:
+        if float(item[0]) < 255 and float(item[1]) < 255 and float(item[2]) < 255:
+            newData.append(item)
+            prevData = item
+        else:
+            newData.append((255, 255, 255, 0))
+            prevData = item
+
+    
+
+    differ.putdata(newData)
+    #differ.save('./Rendering Folder/transparent' + str(count2) +'.png')
+    newData = []
+
+    #differ = Image.open('./Rendering Folder/transparent' + str(count2) +'.png')
+    differ = differ.convert("RGBA")
+    prevData = (255, 255, 255, 255)
+    datas = differ.getdata()
+    print("Cleaning up data...")
+    for item in datas:
+        #if float(item[0]) >= pixelLenience and float(item[1]) >= pixelLenience and float(item[2]) >= pixelLenience:
+        if float(item[0]) > 10 and float(item[1]) > 10 and float(item[2]) > 10 and float(item[3]) != 0:
             newData.append((255, 255, 255, 0))
             prevData = item
         else:
             newData.append(item)
             prevData = item
 
-
-
     differ.putdata(newData)
     print("Opening and converting...")
     differ.save('./Rendering Folder/transparent' + str(count2) +'.png')
+
     layer1 = Image.open("./Rendering Folder/b" + str(count2) +".png")
     layer2 = Image.open("./Rendering Folder/transparent" + str(count2) +".png")
     layer1 = layer1.convert("RGBA")
