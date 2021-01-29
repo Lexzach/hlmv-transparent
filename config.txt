@@ -7,3 +7,4 @@ screenshotSizes:
 44
 1920
 750
+edgeSmoothing=1.3

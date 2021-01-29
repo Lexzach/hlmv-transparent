@@ -1,5 +1,5 @@
 try:
-    import cv2
+    from cv2 import *
 except:
     print("Fatal Error: CV2 is not installed. Please refer to README.md for dependencies.")
     print("Press enter to close...")
@@ -33,13 +33,21 @@ except:
     print("Press enter to close...")
     a = input()
     sys.exit(0)
+try:
+    import skimage.exposure
+except:
+    print("Fatal Error: Skimage is not installed. Please refer to README.md for dependencies.")
+    print("Press enter to close...")
+    a = input()
+    sys.exit(0)
 import os
 import time
 import sys
-from PIL import Image, ImageDraw, ImageFont, ImageChops
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageFilter
 config = []
 print("Starting...")
-print("Version 2.0")
+print("Version 2.1")
 print("- Made by Lexzach -")
 print("Loading config.txt...")
 
@@ -56,7 +64,7 @@ for x in config:
     config[config.index(x)] = x.replace("\n","")
 pairs = 0
 count2=0
-#pixelLenience = float(str(config[9]).replace("pixelLenience=", ""))
+edgeSmoothing = float(str(config[9]).replace("edgeSmoothing=", ""))
 
 if config[2] == "autoScreenshot=true":
     print("")
@@ -170,7 +178,6 @@ while count2 != pairs:
         else:
             newData.append(item)
             prevData = item
-
     differ.putdata(newData)
     print("Opening and converting...")
     differ.save('./Rendering Folder/transparent' + str(count2) +'.png')
@@ -201,6 +208,16 @@ while count2 != pairs:
     differ.putdata(newData)
     print("./Rendering Folder/Saving finished"+ str(count2) +".png")
     differ.save("./Rendering Folder/finished" + str(count2) +".png")
+    if edgeSmoothing > 0:
+        print("Smoothing edges...")
+        img = cv2.imread("./Rendering Folder/finished" + str(count2) +".png", cv2.IMREAD_UNCHANGED)
+        bgr = img[:, :, 0:3]
+        a = img[:, :, 3]
+        ab = cv2.GaussianBlur(a, (0,0), sigmaX=edgeSmoothing, sigmaY=edgeSmoothing, borderType = cv2.BORDER_DEFAULT)
+        aa = skimage.exposure.rescale_intensity(ab, in_range=(127.5,255), out_range=(0,255))
+        out = img.copy()
+        out[:, :, 3] = aa
+        cv2.imwrite("./Rendering Folder/finished" + str(count2) +".png", out)
 
     if config[0] == "deleteTempFiles=true":
         print("Deleting temp files...")
@@ -220,7 +237,6 @@ if config[1] == "autoCrop=true":
     for filename in glob.glob('./Rendering Folder/*.png'):
         if str(filename[19]) == "f":
             im = Image.open(filename)
-            #im = im.resize((im.size[0]*1, im.size[1]*1), Image.ANTIALIAS)
             print("Cropping "+filename)
             im = trim(im)
             im.save(filename[:-4] + "_cropped.png")
