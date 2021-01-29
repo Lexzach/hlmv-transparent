@@ -13,13 +13,6 @@ except:
     a = input()
     sys.exit(0)
 try:
-    import glob
-except:
-    print("Fatal Error: Glob is not installed. Please refer to README.md for dependencies.")
-    print("Press enter to close...")
-    a = input()
-    sys.exit(0)
-try:
     import pyautogui
 except:
     print("Fatal Error: PyAutoGUI is not installed. Please refer to README.md for dependencies.")
