@@ -35,6 +35,7 @@ except:
     sys.exit(0)
 import os
 import time
+import glob
 import sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageFilter
