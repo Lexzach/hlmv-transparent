@@ -64,7 +64,7 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 
 1. Place any transparent images that need to be shrunk into the `Cropping Folder` folder.
 
-2. Run the program titled `Transparent_Cropper.py`.
+2. Run the program titled `Transparent_Cropper.pyw`.
 
 3. Press the `crop` button to crop the images.
 
