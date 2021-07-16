@@ -7,7 +7,7 @@ This is a program specifically designed for the Team Fortress 2 Wiki. It allows 
 
 # Dependencies:
 
-- Python 3.8.6+ `www.python.org/downloads/release/python-386/`
+- Python 3.8.6 `www.python.org/downloads/release/python-386/`
 - OpenCV `pip install opencv-python`
 - Pillow `pip install pillow`
 - Pyautogui `pip install PyAutoGUI`
