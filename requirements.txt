@@ -1,4 +1,4 @@
-opencv-python==4.4.0
+opencv-python==4.4.0.40
 pillow==8.0.1
 pyautogui==0.9.52
 keyboard
