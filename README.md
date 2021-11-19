@@ -1,9 +1,12 @@
 Version 2.3
 
+## Need help setting the program up?
+Feel free to contact me over Discord at `Lexzach#3215`, and I'll be glad to help you set it up.
+
 # HLMV Transparent
 This is a program specifically designed for the Team Fortress 2 Wiki. It allows perfect transparent images to be easily and automatically created at the push of a button using the out of the box Half-Life Model Viewer program.
 
-**IF YOU NOTICE BLACK SPOTS ON THE RENDERED IMAGE, MAKE SURE YOU DISABLE FILTERING OR ANY OTHER SETTINGS YOUR GPU IS APPLYING TO HLMV.**
+**IF YOU NOTICE BLACK SPOTS ON THE RENDERED IMAGE, MAKE SURE YOU DISABLE FILTERING OR ANY OTHER POST-PROCESSING EFFECTS YOUR GPU IS APPLYING TO HLMV.**
 
 # Dependencies:
 
