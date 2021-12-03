@@ -21,7 +21,8 @@ Message.grid(row=0, column=0, sticky="w")
 temp.wait_variable(var)
 
 def trim(im):
-    bg = Image.new(im.mode, im.size, im.getpixel((0,0)))
+    im = im.crop((0, 10, im.size[0], im.size[1]))
+    bg = Image.new(im.mode, (im.size[0], im.size[1]), im.getpixel((0,0)))
     diff = ImageChops.difference(im, bg)
     diff = ImageChops.add(diff, diff, 2.0, -100)
     bbox = diff.getbbox()
