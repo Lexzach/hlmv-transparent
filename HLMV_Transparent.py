@@ -44,7 +44,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageFilter
 
 config = []
 print("Starting...")
-print("Version 2.1")
+print("Version 2.2")
 print("- Made by Lexzach -")
 print("Loading config.txt...")
 
