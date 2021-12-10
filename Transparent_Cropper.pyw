@@ -3,6 +3,7 @@ import os
 import glob
 import tkinter as tk
 from PIL import Image, ImageDraw, ImageFont, ImageChops
+from PIL.PngImagePlugin import PngImageFile, PngInfo
 
 cropImage = []
 
@@ -32,4 +33,6 @@ def trim(im):
 for x in cropImage:
     im = Image.open(x)
     im = trim(im)
-    im.save(x[:-4] + "_cropped.png")
+    meta = PngInfo()
+    meta.add_text("Made using", f"HLMV Transparent Cropper - https://wiki.teamfortress.com/wiki/User:Lexzach")
+    im.save(x[:-4] + "_cropped.png", pnginfo=meta)

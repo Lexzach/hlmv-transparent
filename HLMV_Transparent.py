@@ -1,35 +1,36 @@
 try:
     from cv2 import *
 except:
-    print("Fatal Error: CV2 is not installed. Please refer to README.md for dependencies.")
+    print("Fatal Error: CV2 is not installed. Please refer to README.md for dependencies, or do 'pip install -r requirements.txt.'")
     print("Press enter to close...")
     a = input()
     sys.exit(0)
 try:
     import PIL
+    from PIL.PngImagePlugin import PngImageFile, PngInfo
 except:
-    print("Fatal Error: Pillow is not installed. Please refer to README.md for dependencies.")
+    print("Fatal Error: Pillow is not installed. Please refer to README.md for dependencies, or do 'pip install -r requirements.txt.'")
     print("Press enter to close...")
     a = input()
     sys.exit(0)
 try:
     import pyautogui
 except:
-    print("Fatal Error: PyAutoGUI is not installed. Please refer to README.md for dependencies.")
+    print("Fatal Error: PyAutoGUI is not installed. Please refer to README.md for dependencies, or do 'pip install -r requirements.txt.'")
     print("Press enter to close...")
     a = input()
     sys.exit(0)
 try:
     import keyboard
 except:
-    print("Fatal Error: Keyboard is not installed. Please refer to README.md for dependencies.")
+    print("Fatal Error: Keyboard is not installed. Please refer to README.md for dependencies, or do 'pip install -r requirements.txt.'")
     print("Press enter to close...")
     a = input()
     sys.exit(0)
 try:
     import skimage.exposure
 except:
-    print("Fatal Error: Skimage is not installed. Please refer to README.md for dependencies.")
+    print("Fatal Error: Skimage is not installed. Please refer to README.md for dependencies, or do 'pip install -r requirements.txt.'")
     print("Press enter to close...")
     a = input()
     sys.exit(0)
@@ -44,7 +45,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageFilter
 
 config = []
 print("Starting...")
-print("Version 2.4")
+print("Version 2.5")
 print("- Made by Lexzach -")
 print("Loading config.txt...")
 
@@ -215,7 +216,11 @@ while count2 != pairs:
     differ=Image.open("./Rendering Folder/transparent" + str(count2) +".png")
     differ.putdata(newData)
     print("./Rendering Folder/Saving finished"+ str(count2) +".png")
-    differ.save("./Rendering Folder/finished" + str(count2) +".png")
+    meta = PngInfo()
+    meta.add_text("Made using", f"HLMV Transparent - https://wiki.teamfortress.com/wiki/User:Lexzach")
+    meta.add_text("Debug", f"edgeSmoothing: {edgeSmoothing}")
+    differ.save("./Rendering Folder/finished" + str(count2) +".png", pnginfo=meta)
+
 
     #Smoothing edges to make them less sharp.
     if edgeSmoothing > 0:
@@ -253,7 +258,10 @@ if config[1] == "autoCrop=true":
             im = Image.open(filename)
             print("Cropping "+filename)
             im = trim(im)
-            im.save(filename[:-4] + "_cropped.png")
+            meta = PngInfo()
+            meta.add_text("Made using", f"HLMV Transparent - https://wiki.teamfortress.com/wiki/User:Lexzach")
+            meta.add_text("Debug", f"edgeSmoothing: {edgeSmoothing}")
+            im.save(filename[:-4] + "_cropped.png",pnginfo=meta)
 
 #funny giant "done"
 print("")
