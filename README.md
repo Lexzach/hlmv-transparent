@@ -62,7 +62,7 @@ As an example, if I wanted to do 2 white images and 2 black images, I would do t
 - `edgeSmoothing` - Adjust how much the program smooths edges, `0` is off. The default is `1.3`. Keep in mind that edge smoothing may make small objects such as wires look much worse in some instances.
 
 # Like this program?
-Do you like this program? If so I would really appreciate it if you would stop by and post something to my talk page on the Team Fortress 2 Wikipedia!
+Do you like this program? If so I would really appreciate it if you would stop by and post something to my talk page on the Team Fortress 2 Wiki!
 
 ```wiki.teamfortress.com/wiki/User_talk:Lexzach```
 
